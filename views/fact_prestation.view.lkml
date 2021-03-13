@@ -40,7 +40,7 @@ view: prestation {
   dimension_group: tijd {
     type: time
     timeframes: [date, week, month, year]
-    sql: ${TABLE}.yearMonth ;;
+    sql: CAST(${TABLE}.yearMonth AS DATE) ;;
   }
 
   measure: count {
