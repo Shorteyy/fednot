@@ -46,6 +46,12 @@ view: prestation {
     sql: PARSE_DATE ("%Y%m%d",${year_month}) ;;
   }
 
+  dimension: year_monthTEST {
+    type: string
+    # sql: ${TABLE}.yearMonth ;;
+    sql: PARSE_DATE ("%Y%m%d",CONCAT(${TABLE}.yearMonth, '01')) ;;
+  }
+
   dimension_group: tijd {
     type: time
     timeframes: [date, month_name, year]
