@@ -11,15 +11,17 @@ view: application {
 
   dimension: description_fr {
     type: string
+    hidden: yes
     sql: ${TABLE}.descriptionFR ;;
   }
 
   dimension: description_nl {
     type: string
+    hidden: yes
     sql: ${TABLE}.descriptionNL ;;
   }
 
-  dimension: language {
+  dimension: description {
     label_from_parameter: pick_language
     sql:
         {% if pick_language._parameter_value == 'NL' %}
