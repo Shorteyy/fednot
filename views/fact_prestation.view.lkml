@@ -46,7 +46,7 @@ view: prestation {
     sql: PARSE_DATE ("%Y%m%d",${year_month}) ;;
   }
 
-  dimension_group: year_monthTEST {
+  dimension_group: Dategroup {
     type: time
     timeframes: [date, month_name, year]
     # sql: ${TABLE}.yearMonth ;;
