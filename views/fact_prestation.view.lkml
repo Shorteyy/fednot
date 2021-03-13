@@ -38,6 +38,12 @@ view: prestation {
     sql: CONCAT(${TABLE}.yearMonth, '01') ;;
   }
 
+  dimension: date {
+    type: date
+    # sql: ${TABLE}.yearMonth ;;
+    sql: CAST(CONCAT(${TABLE}.yearMonth, '01'), DATE) ;;
+  }
+
   dimension_group: tijd {
     type: time
     timeframes: [date, week, month, year]
