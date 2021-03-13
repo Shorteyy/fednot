@@ -47,7 +47,7 @@ view: prestation {
   dimension_group: tijd {
     type: time
     timeframes: [date, week, month, year]
-    sql: PARSE_DATE ("%Y%m%d", ${year_month})) ;;
+    sql: ${date};;
   }
 
   measure: count {
