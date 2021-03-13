@@ -16,7 +16,6 @@ persist_with: fednot_poc_default_datagroup
 
 # explore: dim_province {}
 
-
 explore: prestation {
   label: "Self Service"
   join: study {
@@ -36,38 +35,3 @@ explore: prestation {
     type: left_outer # Could be excluded since left_outer is the default
     }
   }
-
-
-
-
-# explore: h_application {}
-
-# explore: h_operation {}
-
-# explore: h_province {}
-
-# explore: h_study {}
-
-# explore: l_application_operation {}
-
-# explore: l_application_operation_province_study {}
-
-# explore: notaries_geo {}
-
-# explore: prestations_dump_2019_2020_studylevel {}
-
-# explore: prestations_geo {}
-
-# explore: province {}
-
-# explore: s_application_operation_province_study {}
-
-# explore: s_operation {}
-
-# explore: s_province {}
-
-# explore: s_study {}
-
-# explore: vw_notaries_geo {}
-
-# explore: vw_s_study {}
