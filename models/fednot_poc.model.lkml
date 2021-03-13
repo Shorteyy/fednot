@@ -22,6 +22,7 @@ explore: prestation {
     sql_on: ${prestation.h_study_sk} = ${study.h_study_sk} ;;
     relationship: many_to_one
     type: left_outer # Could be excluded since left_outer is the default
+    fields: [] #dit zou de hele study view moeten hiden
     }
   join: application {
     sql_on: ${prestation.h_operation_sk} = ${application.h_operation_sk} ;;

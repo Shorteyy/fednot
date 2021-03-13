@@ -11,6 +11,7 @@ view: study {
   dimension: h_study_bk {
     type: number
     sql: ${TABLE}.h_study_bk ;;
+    hidden: yes
   }
 
   dimension: study_name {
@@ -53,5 +54,6 @@ view: study {
   measure: count {
     type: count
     drill_fields: [study_name]
+    hidden: yes
   }
 }

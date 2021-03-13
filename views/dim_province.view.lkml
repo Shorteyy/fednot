@@ -32,6 +32,7 @@ view: province {
   dimension: h_province_sk {
     type: string
     sql: ${TABLE}.h_province_sk ;;
+    hidden: yes
   }
 
   # dimension: province_lat {

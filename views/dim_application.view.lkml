@@ -25,6 +25,7 @@ view: application {
   dimension: h_operation_sk {
     type: string
     sql: ${TABLE}.h_operation_sk ;;
+    hidden: yes
   }
 
   measure: count {
