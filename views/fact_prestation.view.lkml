@@ -37,6 +37,12 @@ view: prestation {
     sql: ${TABLE}.yearMonth ;;
   }
 
+  dimension_group: tijd {
+    type: time
+    timeframes: [date, week, month, year]
+    sql: ${TABLE}.yearMonth ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
