@@ -33,9 +33,9 @@ view: prestation {
   }
 
   dimension: year_month {
-    type: date
+    type: string
     # sql: ${TABLE}.yearMonth ;;
-    # hidden:  yes
+    hidden:  yes
     sql: CONCAT(${TABLE}.yearMonth, '01') ;;
   }
 
