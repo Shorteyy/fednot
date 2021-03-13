@@ -8,14 +8,20 @@ view: province {
     sql: ${TABLE}.country ;;
   }
 
-  dimension: country_lat {
-    type: number
-    sql: ${TABLE}.country_lat ;;
-  }
+  # dimension: country_lat {
+  #   type: number
+  #   sql: ${TABLE}.country_lat ;;
+  # }
 
-  dimension: country_lon {
-    type: number
-    sql: ${TABLE}.country_lon ;;
+  # dimension: country_lon {
+  #   type: number
+  #   sql: ${TABLE}.country_lon ;;
+  # }
+
+  dimension: country_location {
+    type: location
+    sql_latitude: ${TABLE}.country_lat ;;
+    sql_longitude: ${TABLE}.country_lon ;;
   }
 
   dimension: h_province_bk {
@@ -28,14 +34,20 @@ view: province {
     sql: ${TABLE}.h_province_sk ;;
   }
 
-  dimension: province_lat {
-    type: number
-    sql: ${TABLE}.province_lat ;;
-  }
+  # dimension: province_lat {
+  #   type: number
+  #   sql: ${TABLE}.province_lat ;;
+  # }
 
-  dimension: province_lon {
-    type: number
-    sql: ${TABLE}.province_lon ;;
+  # dimension: province_lon {
+  #   type: number
+  #   sql: ${TABLE}.province_lon ;;
+  # }
+
+  dimension: province_location {
+    type: location
+    sql_latitude: ${TABLE}.province_lat ;;
+    sql_longitude: ${TABLE}.province_lon ;;
   }
 
   dimension: region {
@@ -43,14 +55,20 @@ view: province {
     sql: ${TABLE}.region ;;
   }
 
-  dimension: region_lat {
-    type: number
-    sql: ${TABLE}.region_lat ;;
-  }
+  # dimension: region_lat {
+  #   type: number
+  #   sql: ${TABLE}.region_lat ;;
+  # }
 
-  dimension: region_lon {
-    type: number
-    sql: ${TABLE}.region_lon ;;
+  # dimension: region_lon {
+  #   type: number
+  #   sql: ${TABLE}.region_lon ;;
+  # }
+
+  dimension: region_location {
+    type: location
+    sql_latitude: ${TABLE}.region_lat ;;
+    sql_longitude: ${TABLE}.region_lon ;;
   }
 
   measure: count {
