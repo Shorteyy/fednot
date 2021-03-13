@@ -41,7 +41,7 @@ view: prestation {
   dimension: date {
     type: date
     # sql: ${TABLE}.yearMonth ;;
-    sql: CONCAT(${TABLE}.yearMonth, '01') ;;
+    sql: PARSE_DATE ("%Y%m%d",${year_month}) ;;
   }
 
   dimension_group: tijd {
