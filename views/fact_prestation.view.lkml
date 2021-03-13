@@ -33,9 +33,9 @@ view: prestation {
   }
 
   dimension: year_month {
-    type: string
+    type: date
     # sql: ${TABLE}.yearMonth ;;
-    hidden:  yes
+    # hidden:  yes
     sql: CONCAT(${TABLE}.yearMonth, '01') ;;
   }
 
@@ -52,12 +52,6 @@ view: prestation {
     # sql: ${TABLE}.yearMonth ;;
     sql: PARSE_DATE ("%Y%m%d",CONCAT(${TABLE}.yearMonth, '01')) ;;
   }
-
-  # dimension_group: tijd {
-  #   type: time
-  #   timeframes: [date, month_name, year]
-  #   sql: ${year_monthTEST};;
-  # }
 
   measure: count {
     type: count
