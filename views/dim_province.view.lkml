@@ -24,7 +24,7 @@ view: province {
     sql_longitude: ${TABLE}.country_lon ;;
   }
 
-  dimension: h_province_bk {
+  dimension: province {
     type: string
     sql: ${TABLE}.h_province_bk ;;
   }

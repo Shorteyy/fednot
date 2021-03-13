@@ -12,12 +12,12 @@ view: application {
     sql: ${TABLE}.descriptionNL ;;
   }
 
-  dimension: h_application_bk {
+  dimension: application {
     type: string
     sql: ${TABLE}.h_application_bk ;;
   }
 
-  dimension: h_operation_bk {
+  dimension: operation {
     type: string
     sql: ${TABLE}.h_operation_bk ;;
   }
