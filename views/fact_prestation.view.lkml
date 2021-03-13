@@ -40,7 +40,7 @@ view: prestation {
   }
 
   dimension: date {
-    type: date
+    type: string
     hidden:  yes
     # sql: ${TABLE}.yearMonth ;;
     sql: PARSE_DATE ("%Y%m%d",${year_month}) ;;
