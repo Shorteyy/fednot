@@ -35,18 +35,20 @@ view: prestation {
   dimension: year_month {
     type: string
     # sql: ${TABLE}.yearMonth ;;
+    hidden:  yes
     sql: CONCAT(${TABLE}.yearMonth, '01') ;;
   }
 
   dimension: date {
     type: date
+    hidden:  yes
     # sql: ${TABLE}.yearMonth ;;
     sql: PARSE_DATE ("%Y%m%d",${year_month}) ;;
   }
 
   dimension_group: tijd {
     type: time
-    timeframes: [date, week, month, year]
+    timeframes: [date, year]
     sql: ${date};;
   }
 
