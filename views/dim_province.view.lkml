@@ -8,16 +8,6 @@ view: province {
     sql: ${TABLE}.country ;;
   }
 
-  # dimension: country_lat {
-  #   type: number
-  #   sql: ${TABLE}.country_lat ;;
-  # }
-
-  # dimension: country_lon {
-  #   type: number
-  #   sql: ${TABLE}.country_lon ;;
-  # }
-
   dimension: country_location {
     type: location
     sql_latitude: ${TABLE}.country_lat ;;
@@ -35,16 +25,6 @@ view: province {
     hidden: yes
   }
 
-  # dimension: province_lat {
-  #   type: number
-  #   sql: ${TABLE}.province_lat ;;
-  # }
-
-  # dimension: province_lon {
-  #   type: number
-  #   sql: ${TABLE}.province_lon ;;
-  # }
-
   dimension: province_location {
     type: location
     sql_latitude: ${TABLE}.province_lat ;;
@@ -55,16 +35,6 @@ view: province {
     type: string
     sql: ${TABLE}.region ;;
   }
-
-  # dimension: region_lat {
-  #   type: number
-  #   sql: ${TABLE}.region_lat ;;
-  # }
-
-  # dimension: region_lon {
-  #   type: number
-  #   sql: ${TABLE}.region_lon ;;
-  # }
 
   dimension: region_location {
     type: location

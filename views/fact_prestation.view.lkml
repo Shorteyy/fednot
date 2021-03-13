@@ -29,6 +29,7 @@ view: prestation {
   dimension: qty {
     type: number
     sql: ${TABLE}.qty ;;
+    hidden: yes
   }
 
   dimension: year_month {
