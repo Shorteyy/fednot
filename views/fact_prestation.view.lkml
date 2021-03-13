@@ -48,7 +48,7 @@ view: prestation {
 
   dimension_group: tijd {
     type: time
-    timeframes: [date, year]
+    timeframes: [date, month_name, year]
     sql: ${date};;
   }
 
