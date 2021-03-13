@@ -18,6 +18,7 @@ persist_with: fednot_poc_default_datagroup
 
 
 explore: prestation {
+  label: "Self Service"
   join: study {
     sql_on: ${prestation.h_study_sk} = ${study.h_study_sk} ;;
     relationship: many_to_one
