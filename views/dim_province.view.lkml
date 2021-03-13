@@ -1,4 +1,4 @@
-view: dim_province {
+view: province {
   sql_table_name: `fednot-sandbox-bi.Prestations.dim_province`
     ;;
 

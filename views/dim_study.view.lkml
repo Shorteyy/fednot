@@ -1,4 +1,4 @@
-view: dim_study {
+view: study {
   sql_table_name: `Prestations.dim_study`
     ;;
 

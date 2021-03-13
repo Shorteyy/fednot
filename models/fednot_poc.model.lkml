@@ -10,25 +10,26 @@ datagroup: fednot_poc_default_datagroup {
 
 persist_with: fednot_poc_default_datagroup
 
-explore: dim_study {}
+# explore: dim_study {}
 
-explore: dim_application {}
+# explore: dim_application {}
 
-explore: dim_province {}
+# explore: dim_province {}
 
-explore: fact_prestation {
-  join: dim_study {
-    sql_on: ${fact_prestation.h_study_sk} = ${dim_study.h_study_sk} ;;
+
+explore: prestation {
+  join: study {
+    sql_on: ${prestation.h_study_sk} = ${study.h_study_sk} ;;
     relationship: many_to_one
     type: left_outer # Could be excluded since left_outer is the default
     }
-  join: dim_application {
-    sql_on: ${fact_prestation.h_operation_sk} = ${dim_application.h_operation_sk} ;;
+  join: application {
+    sql_on: ${prestation.h_operation_sk} = ${application.h_operation_sk} ;;
     relationship: many_to_one
     type: left_outer # Could be excluded since left_outer is the default
     }
-  join: dim_province {
-    sql_on: ${fact_prestation.h_province_sk} = ${dim_province.h_province_sk} ;;
+  join: province {
+    sql_on: ${prestation.h_province_sk} = ${province.h_province_sk} ;;
     relationship: many_to_one
     type: left_outer # Could be excluded since left_outer is the default
     }

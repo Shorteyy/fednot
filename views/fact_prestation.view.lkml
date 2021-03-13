@@ -1,4 +1,4 @@
-view: fact_prestation {
+view: prestation {
   sql_table_name: `fednot-sandbox-bi.Prestations.fact_prestation`
     ;;
 

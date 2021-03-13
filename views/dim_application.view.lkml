@@ -1,4 +1,4 @@
-view: dim_application {
+view: application {
   sql_table_name: `fednot-sandbox-bi.Prestations.dim_application`
     ;;
 
