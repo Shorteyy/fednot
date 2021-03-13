@@ -34,13 +34,14 @@ view: prestation {
 
   dimension: year_month {
     type: string
-    sql: ${TABLE}.yearMonth ;;
+    # sql: ${TABLE}.yearMonth ;;
+    sql: CONCAT(${TABLE}.yearMonth, '01') ;;
   }
 
   dimension_group: tijd {
     type: time
     timeframes: [date, week, month, year]
-    sql: CAST(${TABLE}.yearMonth AS DATE) ;;
+    sql: CONCAT(${TABLE}.yearMonth, '01') ;;
   }
 
   measure: count {
