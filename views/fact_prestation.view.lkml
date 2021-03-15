@@ -56,13 +56,10 @@ view: prestation {
   dimension_group: Dategroup {
     type: time
     timeframes: [date, month_name, year]
+    datatype: date
     sql: ${TABLE}.yearMonth ;;
   }
 
-  dimension: date {
-    type: date
-    sql: ${TABLE}.yearMonth ;;
-  }
   measure: count {
     type: count
     drill_fields: []
