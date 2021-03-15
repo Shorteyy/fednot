@@ -26,7 +26,7 @@ view: application {
     sql:
         {% if pick_language._parameter_value == "'NL'" %}
           ${description_nl}
-        {% elsif pick_language._parameter_value == "'FR'"" %}
+        {% elsif pick_language._parameter_value == "'FR'" %}
           ${description_fr}
          {% else %}
            ${description_nl}
