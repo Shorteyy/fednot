@@ -24,9 +24,9 @@ view: application {
   dimension: description {
     label_from_parameter: pick_language
     sql:
-        {% if pick_language._parameter_value == 'NL' %}
+        {% if pick_language._parameter_value == "'NL'" %}
           ${description_nl}
-        {% elsif pick_language._parameter_value == 'FR' %}
+        {% elsif pick_language._parameter_value == "'FR'"" %}
           ${description_fr}
          {% else %}
            ${description_nl}
