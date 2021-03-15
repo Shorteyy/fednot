@@ -35,7 +35,6 @@ view: application {
 
   dimension: application {
     type: string
-    primary_key: yes
     sql: ${TABLE}.h_application_bk ;;
   }
 
