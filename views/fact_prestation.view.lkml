@@ -32,25 +32,32 @@ view: prestation {
     hidden: yes
   }
 
-  dimension: year_month {
-    type: string
-    # sql: ${TABLE}.yearMonth ;;
-    hidden:  yes
-    sql: CONCAT(${TABLE}.yearMonth, '01') ;;
-  }
+  # dimension: year_month {
+  #   type: string
+  #   # sql: ${TABLE}.yearMonth ;;
+  #   hidden:  yes
+  #   sql: CONCAT(${TABLE}.yearMonth, '01') ;;
+  # }
 
-  dimension: date {
-    type: date
-    hidden:  yes
-    # sql: ${TABLE}.yearMonth ;;
-    sql: PARSE_DATE ("%Y%m%d",${year_month}) ;;
-  }
+  # dimension: date {
+  #   type: date
+  #   hidden:  yes
+  #   # sql: ${TABLE}.yearMonth ;;
+  #   sql: PARSE_DATE ("%Y%m%d",${year_month}) ;;
+  # }
 
-  dimension_group: Dategroup {
+  # dimension_group: Dategroup {
+  #   type: time
+  #   timeframes: [date, month_name, year]
+  #   # sql: ${TABLE}.yearMonth ;;
+  #   sql: PARSE_DATE ("%Y%m%d",CONCAT(${TABLE}.yearMonth, '01')) ;;
+  # }
+
+    dimension_group: Dategroup {
     type: time
     timeframes: [date, month_name, year]
     # sql: ${TABLE}.yearMonth ;;
-    sql: PARSE_DATE ("%Y%m%d",CONCAT(${TABLE}.yearMonth, '01')) ;;
+    sql: ${TABLE}.yearMonth ;;
   }
 
   measure: count {
