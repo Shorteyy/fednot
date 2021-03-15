@@ -53,13 +53,16 @@ view: prestation {
   #   sql: PARSE_DATE ("%Y%m%d",CONCAT(${TABLE}.yearMonth, '01')) ;;
   # }
 
-    dimension_group: Dategroup {
+  dimension_group: Dategroup {
     type: time
     timeframes: [date, month_name, year]
-    # sql: ${TABLE}.yearMonth ;;
     sql: ${TABLE}.yearMonth ;;
   }
 
+  dimension: date {
+    type: date
+    sql: ${TABLE}.yearMonth ;;
+  }
   measure: count {
     type: count
     drill_fields: []
