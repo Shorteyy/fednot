@@ -28,11 +28,11 @@ view: application {
           ${description_nl}
         {% elsif pick_language._parameter_value == 'FR' %}
           ${description_fr}
-        {% else %}
-          ${description_nl}
+
         {% endif %};;
   }
-
+        # {% else %}
+        #   ${description_nl}
   dimension: application {
     type: string
     sql: ${TABLE}.h_application_bk ;;
