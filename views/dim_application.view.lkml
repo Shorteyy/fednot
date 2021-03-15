@@ -29,7 +29,7 @@ view: application {
         {% elsif pick_language._parameter_value == 'FR' %}
           ${description_fr}
          {% else %}
-           ${description_nl}
+           ${description_fr}
         {% endif %};;
   }
 
