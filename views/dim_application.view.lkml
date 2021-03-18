@@ -43,6 +43,36 @@ view: application {
     sql: ${TABLE}.h_operation_bk ;;
   }
 
+  dimension: operation_group {
+    case: {
+      when: {
+        sql: Upper(${TABLE}.h_operation_bk) like "%INSCHR%";;
+        label: "Inschrijving"
+      }
+      when: {
+        sql: Upper(${TABLE}.h_operation_bk) like "%TELEFONISCH%";;
+        label: "Telefonisch"
+      }
+      when: {
+        sql: Upper(${TABLE}.h_operation_bk) like "%OPZOEKING%";;
+        label: "Opzoeking"
+      }
+      when: {
+        sql: Upper(${TABLE}.h_operation_bk) like "%CONSULTATIE%";;
+        label: "Consultatie"
+      }
+      when: {
+        sql: Upper(${TABLE}.h_operation_bk) like "%VERKLARING%";;
+        label: "Verklaring"
+      }
+      when: {
+        sql: Upper(${TABLE}.h_operation_bk) like "%PUBLICATIE%";;
+        label: "Publicatie"
+      }
+      else: "Niet van toepassing"
+    }
+  }
+
   dimension: h_operation_sk {
     type: string
     sql: ${TABLE}.h_operation_sk ;;

@@ -60,7 +60,7 @@ view: prestation {
 
   dimension_group: Dategroup {
     type: time
-    timeframes: [date, month_name, quarter, year, quarter_of_year]
+    timeframes: [date, month, month_name, quarter, year, quarter_of_year]
     datatype: date
     # sql: ${TABLE}.yearMonth ;;
     sql: ${month_start_date} ;;
@@ -72,17 +72,14 @@ view: prestation {
     type: string
     sql:
     {% if timeframe_picker._parameter_value == 'Month'  %}
-      ${Dategroup_month_name}
+      ${Dategroup_month}
     {% elsif timeframe_picker._parameter_value == 'Year' %}
       ${Dategroup_year}
       {% elsif timeframe_picker._parameter_value == 'Quarter' %}
-      ${Dategroup_quarter_of_year}
+      concat(${Dategroup_year},"-",${Dategroup_quarter_of_year})
     {% else %}
-      ${Dategroup_quarter}
+      concat($(${Dategroup_year},"-",${Dategroup_quarter_of_year})
     {% endif %};;
-    # timeframes: [date, month_name, year]
-    # datatype: date
-    # sql: ${TABLE}.yearMonth ;;
   }
 
   measure: count {
@@ -100,4 +97,9 @@ view: prestation {
     sql: ${qty} ;;
   }
 
+  measure: percent_of_total_operations {
+    type: percent_of_total
+    value_format: "0.00\%"
+    sql: ${sum_qty} ;;
+  }
 }
