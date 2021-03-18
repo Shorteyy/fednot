@@ -49,8 +49,8 @@ view: application {
     hidden: yes
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
+  # measure: count {
+  #   type: count
+  #   drill_fields: []
+  # }
 }

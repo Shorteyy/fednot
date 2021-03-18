@@ -60,10 +60,10 @@ view: prestation {
     sql: ${TABLE}.yearMonth ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
+  # measure: count {
+  #   type: count
+  #   drill_fields: []
+  # }
   measure: sum_qty {
     type: sum
     sql: ${qty} ;;
