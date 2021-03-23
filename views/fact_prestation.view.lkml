@@ -43,7 +43,6 @@ view: prestation {
 
   dimension: year_month {
     type: string
-    # sql: ${TABLE}.yearMonth ;;
     hidden:  yes
     sql: ${TABLE}.yearMonth ;;
   }
@@ -52,24 +51,30 @@ view: prestation {
     type: date
     datatype: date
     hidden:  yes
-    # sql: ${TABLE}.yearMonth ;;
     sql: cast(${year_month} as date) ;;
     allow_fill: no
   }
-
 
   dimension_group: Dategroup {
     type: time
     timeframes: [date, month, month_name, quarter, year, quarter_of_year]
     datatype: date
-    # sql: ${TABLE}.yearMonth ;;
     sql: ${month_start_date} ;;
     allow_fill: no
+  }
+
+  dimension: is_ytd {
+    type: yesno
+    group_label: "Date Restrictions"
+    label: "Is YTD?"
+    view_label: "Dynamic Grouping & Time Comparisons"
+    sql: EXTRACT(MONTH from ${month_start_date}) < EXTRACT(MONTH from CURRENT_TIMESTAMP);;
   }
 
   dimension: timeframe {
     label_from_parameter: timeframe_picker
     type: string
+    view_label: "Dynamic Grouping & Time Comparisons"
     sql:
     {% if timeframe_picker._parameter_value == 'Month'  %}
       ${Dategroup_month}
@@ -102,4 +107,14 @@ view: prestation {
     value_format: "0.00\%"
     sql: ${sum_qty} ;;
   }
+
+  measure: total_sum_ytd {
+   type: sum
+    filters: {
+      field: is_ytd
+      value: "yes"
+    }
+   sql: ${qty} ;;
+  }
+
 }
