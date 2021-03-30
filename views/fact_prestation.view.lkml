@@ -50,7 +50,7 @@ view: prestation {
   dimension: month_start_date {
     type: date
     datatype: date
-    hidden:  yes
+    hidden: yes
     sql: cast(${year_month} as date) ;;
     allow_fill: no
   }

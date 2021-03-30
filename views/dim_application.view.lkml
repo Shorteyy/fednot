@@ -35,6 +35,7 @@ view: application {
 
   dimension: application {
     type: string
+    drill_fields: [operation_group,operation]
     sql: ${TABLE}.h_application_bk ;;
   }
 
@@ -44,6 +45,7 @@ view: application {
   }
 
   dimension: operation_group {
+    drill_fields: [operation]
     case: {
       when: {
         sql: Upper(${TABLE}.h_operation_bk) like "%INSCHR%";;

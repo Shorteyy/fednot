@@ -5,6 +5,7 @@ view: province {
   dimension: country {
     type: string
     map_layer_name: countries
+    drill_fields: [region, province]
     sql: ${TABLE}.country ;;
   }
 
@@ -31,8 +32,15 @@ view: province {
     sql_longitude: ${TABLE}.province_lon ;;
   }
 
+  dimension: province_location_area {
+    type: string
+    map_layer_name: province_location
+    sql: ${TABLE}.h_province_bk ;;
+  }
+
   dimension: region {
     type: string
+    drill_fields: [province]
     sql: ${TABLE}.region ;;
   }
 

@@ -10,6 +10,11 @@ datagroup: fednot_poc_default_datagroup {
 
 persist_with: fednot_poc_default_datagroup
 
+map_layer: province_location {
+  file: "/maps/arvastat_be_maps_top_Province.topojson"
+  property_key: "nameNL"
+}
+
 # explore: dim_study {}
 
 # explore: dim_application {}
@@ -18,6 +23,10 @@ persist_with: fednot_poc_default_datagroup
 
 explore: prestation {
   label: "Self Service"
+  access_filter: {
+    field: province.region
+    user_attribute: region
+  }
   join: study {
     sql_on: ${prestation.h_study_sk} = ${study.h_study_sk} ;;
     relationship: many_to_one
