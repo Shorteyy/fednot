@@ -23,10 +23,10 @@ map_layer: province_location {
 
 explore: prestation {
   label: "Self Service"
-  access_filter: {
-    field: province.region
-    user_attribute: region
-  }
+#  access_filter: {
+#   field: province.region
+#   user_attribute: region
+#  }
   join: study {
     sql_on: ${prestation.h_study_sk} = ${study.h_study_sk} ;;
     relationship: many_to_one
@@ -43,4 +43,9 @@ explore: prestation {
     relationship: many_to_one
     type: left_outer # Could be excluded since left_outer is the default
     }
+  join: prestation_forecast {
+    sql_on: ${prestation_forecast.month_start_date} =${prestation.month_start_date} AND ${prestation_forecast.region}=${province.region} ;;
+    relationship: many_to_one
+    type:  left_outer
+  }
   }

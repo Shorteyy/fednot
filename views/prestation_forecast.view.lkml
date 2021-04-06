@@ -88,7 +88,8 @@ view: prestation_forecast {
 
   dimension: month_start_date {
     type: date
-    sql: ${TABLE}.month_start_date ;;
+    sql: cast(concat(substr(${TABLE}.month_start_date,1,4),"-", substr(${TABLE}.month_start_date,5,2),"-", substr(${TABLE}.month_start_date,7,2)) as date);;
+    allow_fill: no
   }
 
   dimension: region {
@@ -96,9 +97,22 @@ view: prestation_forecast {
     sql: ${TABLE}.region ;;
   }
 
-  dimension: forecasted_value {
+  dimension: compound_primary_key {
+    primary_key: yes
+    hidden: yes
     type: string
-    sql: ${TABLE}.forecasted_value ;;
+    sql: CONCAT(cast(${TABLE}.month_start_date as string ), ' ', ${TABLE}.region) ;;
+  }
+
+  dimension: forecasted_value {
+    type: number
+    sql: cast(${TABLE}.forecasted_value as numeric);;
+  }
+
+  measure: sum_forecased_value {
+    hidden: no
+    type: sum
+    sql: ${forecasted_value} ;;
   }
 
   set: detail {
