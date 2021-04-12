@@ -15,6 +15,16 @@ map_layer: province_location {
   property_key: "nameNL"
 }
 
+map_layer: province_location_belgium {
+  file: "/maps/belgium.json"
+  property_key: "prov_nl"
+}
+
+map_layer: region_location_belgium {
+  file: "/maps/belgium.json"
+  property_key: "reg_nl"
+}
+
 # explore: dim_study {}
 
 # explore: dim_application {}

@@ -32,10 +32,26 @@ view: province {
     sql_longitude: ${TABLE}.province_lon ;;
   }
 
-  dimension: province_location_area {
+  #dimension: province_location_area {
+  #  type: string
+  #  map_layer_name: province_location
+  #  sql: ${TABLE}.h_province_bk ;;
+  #}
+
+dimension: province_location_area {
     type: string
-    map_layer_name: province_location
-    sql: ${TABLE}.h_province_bk ;;
+    map_layer_name: province_location_belgium
+    sql: concat("Provincie " || trim(${TABLE}.h_province_bk)) ;;
+  }
+
+dimension: region_location_area {
+    type: string
+    map_layer_name: region_location_belgium
+    sql: CASE
+    WHEN ${TABLE}.region = "Vlaanderen" THEN "Vlaams Gewest"
+    WHEN ${TABLE}.region = "Wallonie" THEN "Waals Gewest"
+    ELSE "Brussels Hoofdstedelijk Gewest"
+    END ;;
   }
 
   dimension: region {
