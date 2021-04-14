@@ -87,12 +87,20 @@ view: prestation {
     {% endif %};;
   }
 
+  dimension: prestation_compound_primary_key {
+    primary_key: yes
+    hidden: yes
+    type: string
+    sql: CONCAT(cast(${TABLE}.month_start_date as string ), ' ', ${TABLE}.h_study_sk, ' ', ${TABLE}.h_province_sk, ' ', ${TABLE}.h_operation_sk ) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
   }
 
   measure: sum_qty {
+    label: "# Operations"
     type: sum
     sql: ${qty} ;;
   }

@@ -4,6 +4,7 @@ view: study {
 
   dimension: h_study_sk {
     type: string
+    primary_key: yes
     hidden: yes
     sql: ${TABLE}.h_study_sk ;;
   }

@@ -2,7 +2,6 @@ view: application {
   sql_table_name: `fednot-sandbox-bi.Prestations.dim_application`
     ;;
 
-
   parameter: pick_language {
     type: string
     allowed_value: { value: "NL" }
@@ -77,6 +76,7 @@ view: application {
 
   dimension: h_operation_sk {
     type: string
+    primary_key: yes
     sql: ${TABLE}.h_operation_sk ;;
     hidden: yes
   }

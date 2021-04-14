@@ -22,6 +22,7 @@ view: province {
 
   dimension: h_province_sk {
     type: string
+    primary_key: yes
     sql: ${TABLE}.h_province_sk ;;
     hidden: yes
   }
@@ -39,6 +40,7 @@ view: province {
   #}
 
 dimension: province_location_area {
+  label: "Provincie"
     type: string
     map_layer_name: province_location_belgium
     sql: concat("Provincie " || trim(${TABLE}.h_province_bk)) ;;
@@ -46,6 +48,8 @@ dimension: province_location_area {
 
 dimension: region_location_area {
     type: string
+    label: "Regio"
+    drill_fields: [province_location_area]
     map_layer_name: region_location_belgium
     sql: CASE
     WHEN ${TABLE}.region = "Vlaanderen" THEN "Vlaams Gewest"
