@@ -16,6 +16,7 @@ view: province {
   }
 
   dimension: province {
+    hidden: yes
     type: string
     sql: ${TABLE}.h_province_bk ;;
   }
@@ -40,7 +41,7 @@ view: province {
   #}
 
 dimension: province_location_area {
-  label: "Provincie"
+  label: "Province Area"
     type: string
     map_layer_name: province_location_belgium
     sql: concat("Provincie " || trim(${TABLE}.h_province_bk)) ;;
@@ -48,7 +49,7 @@ dimension: province_location_area {
 
 dimension: region_location_area {
     type: string
-    label: "Regio"
+    label: "Region Area"
     drill_fields: [province_location_area]
     map_layer_name: region_location_belgium
     sql: CASE
@@ -59,6 +60,7 @@ dimension: region_location_area {
   }
 
   dimension: region {
+    hidden: yes
     type: string
     drill_fields: [province]
     sql: ${TABLE}.region ;;
@@ -71,6 +73,7 @@ dimension: region_location_area {
   }
 
   measure: count {
+    hidden: yes
     type: count
     drill_fields: []
   }
